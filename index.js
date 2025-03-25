@@ -8,11 +8,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // * Please DO NOT INCLUDE the private app access token in your repo. Don't do this practicum in your normal account.
-const PRIVATE_APP_ACCESS = '';
+const TOKEN = process.env.HUBSPOT_TOKEN;
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
 // * Code for Route 1 goes here
+app.get('/', async (req, res) => {
+    const records = await getBike();
+    res.render('homepage', { title: 'Bike', records });
+    //console.log(records)
+});
 
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
@@ -66,6 +71,32 @@ app.post('/update', async (req, res) => {
 });
 */
 
+async function getBike() {
+    const response = await axios.get("https://api.hubapi.com/crm/v3/objects/bikes?limit=100&properties=bike_name&properties=bike_model&properties=bike_date", {
+        headers: {'Authorization': 'Bearer ' + TOKEN},
+    });
+    return response.data.results
+}
+
+async function createBikeRecord(bike_name, bike_model, bike_date) {
+    const payload = {
+        properties: {
+            "bike_name": bike_name,
+            "bike_model": bike_model,
+            "bike_date": bike_date
+          }
+    }
+    const headers = {
+        'Authorization': 'Bearer ' + TOKEN, 
+        'Content-type': 'application/json'
+    }
+    try {
+        await axios.post("https://api.hubapi.com/crm/v3/objects/bikes", payload, {headers});
+        res.redirect('back');
+    } catch(err) {
+        console.error(err)
+    }
+};
 
 // * Localhost
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));

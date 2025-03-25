@@ -1,0 +1,17 @@
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body    
+        h1 #{title}
+        form.form-wrapper(action="/create" method="POST")
+            label(for="bike_name") Bike Name*: 
+            input(type="text" name="bike_name" required)
+            label(for="bike_model") Bike Model*: 
+            input(type="text" name="bike_model" required)
+            label(for="bike_date") Bike Date*: 
+            input(type="date" name="bike_date" required)
+            button(type="submit") Add
+        a(href="/") Go to the homepage

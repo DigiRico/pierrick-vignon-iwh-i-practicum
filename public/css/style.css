@@ -37,16 +37,17 @@ table td {
     display: inline-block;
 }
 
-.card__img {
-    max-width: 3rem;
-}
-
 .card__name {
     font-weight: 800;
+    padding: 10px;
 }
 
 .card__type {
-    font-size: 1rem;
+    font-weight: 800;
+}
+
+p {
+    color: black;
 }
 
 .form-wrapper {

@@ -5,18 +5,18 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet", href="/css/style.css")
     body    
-        h1 #{title}, All Bike  
-        a.cta(href="/form") Check this out
+        h1 #{title}, select the bike of the day
+        a.cta(href="/form") Ask for a new bike
         table 
             tr 
                 th Bike Name 
                 th Bike Model  
-                th Bike Year 
+                th Bike Type  
             each bike in records
                 tr
                     td 
-                        img.card__img(src=`${bike.properties.photo}`)
+                        h2.card__name #{bike.properties.bike_name}
                     td 
-                        h2.card__name #{bike.properties.name}
+                        h2.card__name #{bike.properties.bike_model}
                     td 
-                        p.card__type #{bike.properties.type}
+                        H2.card__type  #{bike.properties.bike_type}

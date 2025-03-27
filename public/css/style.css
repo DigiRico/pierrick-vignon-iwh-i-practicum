@@ -10,23 +10,42 @@ h1 {
     margin: 1rem;
 }
 
-.cards {
+table {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    
 }
 
-.card {
-    flex-basis: 31%;
-    margin: 1rem 0.4rem;
-    padding: 1rem 0.4rem 2.5rem 0.4rem;
-    border: solid 1px lightgrey;
-    border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
+table th {
+    background-color: #003158;
+    min-width: 150px;
+    color: #fff;
+    padding: 10px 20px;
 }
 
-.card__email {
+table td {
+    border-collapse: collapse;
+}
+
+.cta {
+    background-color: #003158;
+    margin: 10px 20px;
+    color: white;
+    border-radius: 30px;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.card__img {
+    max-width: 3rem;
+}
+
+.card__name {
+    font-weight: 800;
+}
+
+.card__type {
     font-size: 1rem;
 }
 
@@ -50,9 +69,13 @@ input[type="text"] {
     padding: .25rem;
 }
 
-input[type="submit"] {
-    background-color: lightgrey;
-    border: none;
-    padding: .375rem 1rem;
-    margin-top: 10px;
+button[type="submit"] {
+    background-color: #003158;
+    margin: 5px 0px;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }

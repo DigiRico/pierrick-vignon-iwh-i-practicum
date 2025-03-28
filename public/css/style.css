@@ -44,6 +44,7 @@ table td {
 
 .card__type {
     font-weight: 800;
+    padding: 10px;
 }
 
 p {

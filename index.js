@@ -92,7 +92,7 @@ async function createBikeRecord(bike_name, bike_model, bike_type) {
         properties: {
             "bike_name": bike_name,
             "bike_model": bike_model,
-            "bike_type": bike_type,
+            "bike_type": bike_type
           }
     }
     const headers = {
